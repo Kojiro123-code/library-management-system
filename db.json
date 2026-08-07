@@ -1,14 +1,24 @@
 {
   "books": [
     {
-      "id": 1,
-      "title": "Clean Code",
-      "author": "Robert C. Martin",
-      "isbn": "9780132350884",
+      "id": "dzdjyUfSRgE",
+      "title": "Flutter in Action",
+      "author": "Eric Windmill",
+      "isbn": "9781617296147",
       "categoryId": 1,
-      "publishedYear": 2008,
+      "publishedYear": 2019,
+      "quantity": 5,
+      "availableQuantity": 5
+    },
+    {
+      "id": "kq8Euuf4zPs",
+      "title": "Flutter in Action (2nd Edition)",
+      "author": "Eric Windmill",
+      "isbn": "9781617296147",
+      "categoryId": 1,
+      "publishedYear": 2023,
       "quantity": 10,
-      "availableQuantity": 8
+      "availableQuantity": 9
     }
   ],
   "members": [],
@@ -16,11 +26,12 @@
   "borrowings": [],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Administrator",
       "username": "admin",
       "password": "1234",
       "role": "admin"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

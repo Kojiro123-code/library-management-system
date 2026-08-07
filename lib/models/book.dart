@@ -1,5 +1,5 @@
 class Book {
-  final int id;
+  final String? id;
   String title;
   String author;
   String isbn;
@@ -9,7 +9,7 @@ class Book {
   int availableQuantity;
 
   Book({
-    required this.id,
+    this.id,
     required this.title,
     required this.author,
     required this.isbn,
@@ -20,15 +20,40 @@ class Book {
   });
 
   factory Book.fromJson(Map<String, dynamic> json) {
-  return Book(
-    id: int.parse(json['id'].toString()),
-    title: json['title'].toString(),
-    author: json['author'].toString(),
-    isbn: json['isbn'].toString(),
-    categoryId: int.parse(json['categoryId'].toString()),
-    publishedYear: int.parse(json['publishedYear'].toString()),
-    quantity: int.parse(json['quantity'].toString()),
-    availableQuantity: int.parse(json['availableQuantity'].toString()),
+    return Book(
+      id: json['id'].toString(),
+      title: json['title'].toString(),
+      author: json['author'].toString(),
+      isbn: json['isbn'].toString(),
+      categoryId: int.parse(json['categoryId'].toString()),
+      publishedYear: int.parse(json['publishedYear'].toString()),
+      quantity: int.parse(json['quantity'].toString()),
+      availableQuantity: int.parse(json['availableQuantity'].toString()),
     );
+  }
+
+  Map<String, dynamic> toCreateJson() {
+    return {
+      'title': title,
+      'author': author,
+      'isbn': isbn,
+      'categoryId': categoryId,
+      'publishedYear': publishedYear,
+      'quantity': quantity,
+      'availableQuantity': availableQuantity,
+    };
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'title': title,
+      'author': author,
+      'isbn': isbn,
+      'categoryId': categoryId,
+      'publishedYear': publishedYear,
+      'quantity': quantity,
+      'availableQuantity': availableQuantity,
+    };
   }
 }

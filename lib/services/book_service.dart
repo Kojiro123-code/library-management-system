@@ -8,9 +8,7 @@ class BookService {
   final ApiExtension _api = ApiExtension();
 
   Future<List<Book>> getBooks() async {
-    final response = await _api.get(
-      endPoint: ApiEndPoint.books,
-    );
+    final response = await _api.get(endPoint: ApiEndPoint.books);
 
     print("Status Code: ${response.statusCode}");
     print("Response Body: ${response.body}");
@@ -25,5 +23,52 @@ class BookService {
     }
 
     return books;
+  }
+
+  Future<Book?> getBookById(int id) async {
+    final response = await _api.get(endPoint: "${ApiEndPoint.books}/$id");
+
+    if (response.statusCode == 200) {
+      return Book.fromJson(jsonDecode(response.body));
+    }
+
+    return null;
+  }
+
+  Future<Book?> addBook(Book book) async {
+    final response = await _api.post(
+      endPoint: ApiEndPoint.books,
+      body: book.toCreateJson(),
+    );
+
+    if (response.statusCode == 201) {
+      return Book.fromJson(jsonDecode(response.body));
+    }
+
+    return null;
+  }
+
+  Future<Book?> updateBook(Book book) async {
+    final response = await _api.put(
+      endPoint: "${ApiEndPoint.books}/${book.id}",
+      body: book.toJson(),
+    );
+
+    if (response.statusCode == 200) {
+      return Book.fromJson(
+        jsonDecode(response.body)
+      );
+    }
+
+    return null;
+  }
+
+
+  Future<bool> deleteBook(String id) async {
+    final response = await _api.delete(
+      endPoint: "${ApiEndPoint.books}/$id",
+    );
+
+    return response.statusCode == 200;
   }
 }
