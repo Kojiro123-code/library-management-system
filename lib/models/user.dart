@@ -8,21 +8,35 @@ class User extends Person {
   final UserRole role;
 
   User({
-    required int id,
+    String? id,
     required String name,
     required this.username,
     required this.password,
     required this.role,
-  }) : super(id: id, name: name);
+  }) : super(
+          id: id,
+          name: name,
+        );
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
-      id: json['id'],
-      name: json['name'],
-      username: json['username'],
-      password: json['password'],
-      role: json['role'] == 'admin' ? UserRole.admin : UserRole.user,
+      id: json['id']?.toString(),
+      name: json['name'].toString(),
+      username: json['username'].toString(),
+      password: json['password'].toString(),
+      role: json['role'] == 'admin'
+          ? UserRole.admin
+          : UserRole.user,
     );
+  }
+
+  Map<String, dynamic> toCreateJson() {
+    return {
+      'name': name,
+      'username': username,
+      'password': password,
+      'role': role.name,
+    };
   }
 
   Map<String, dynamic> toJson() {

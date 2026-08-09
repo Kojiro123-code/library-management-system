@@ -5,26 +5,31 @@ class Member extends Person {
   String email;
 
   Member({
-    required int id,
+    String? id,
     required String name,
     required this.phone,
     required this.email,
   }) : super(
-      id: id,
-      name: name,
-  );
-
-
+          id: id,
+          name: name,
+        );
 
   factory Member.fromJson(Map<String, dynamic> json) {
     return Member(
-      id: json['id'],
-      name: json['name'],
-      phone: json['phone'],
-      email: json['email'],
+      id: json['id']?.toString(),
+      name: json['name'].toString(),
+      phone: json['phone'].toString(),
+      email: json['email'].toString(),
     );
   }
 
+  Map<String, dynamic> toCreateJson() {
+    return {
+      'name': name,
+      'phone': phone,
+      'email': email,
+    };
+  }
 
   Map<String, dynamic> toJson() {
     return {

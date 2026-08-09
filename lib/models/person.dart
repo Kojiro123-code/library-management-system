@@ -1,9 +1,9 @@
 abstract class Person {
-  final int id;
+  final String? id;
   String name;
 
   Person({
-    required this.id, 
+    this.id, 
     required this.name,
     });
 }

@@ -21,7 +21,14 @@
       "availableQuantity": 9
     }
   ],
-  "members": [],
+  "members": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "phone": "012345678",
+      "email": "john@example.com"
+    }
+  ],
   "categories": [
     {
       "id": "1",

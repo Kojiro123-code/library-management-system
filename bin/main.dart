@@ -1,14 +1,14 @@
-import 'package:library_management_system/services/category_service.dart';
+import 'package:library_management_system/services/member_service.dart';
 
 void main() async {
-  final service = CategoryService();
+  final service = MemberService();
 
-  final success = await service.deleteCategory(
-    "8uwOq8QoK1w",
+  final success = await service.deleteMember(
+    "W42kUkX4hbg",
   );
 
   if (success) {
-    print("✅ Category Deleted Successfully!");
+    print("✅ Member Deleted Successfully!");
   } else {
     print("❌ Delete Failed");
   }
