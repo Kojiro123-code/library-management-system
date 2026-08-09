@@ -22,7 +22,13 @@
     }
   ],
   "members": [],
-  "categories": [],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Database Management",
+      "description": "Books about databases, SQL, and data management"
+    }
+  ],
   "borrowings": [],
   "users": [
     {
