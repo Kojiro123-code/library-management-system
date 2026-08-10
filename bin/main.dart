@@ -1,15 +1,26 @@
-import 'package:library_management_system/services/member_service.dart';
+import 'package:library_management_system/models/borrowing.dart';
+import 'package:library_management_system/services/borrowing_service.dart';
 
 void main() async {
-  final service = MemberService();
+  final service = BorrowingService();
 
-  final success = await service.deleteMember(
-    "W42kUkX4hbg",
+  final returnedBorrowing = Borrowing(
+    id: "1",
+    bookId: "1",
+    memberId: "1",
+    borrowDate: DateTime.parse("2026-08-10T09:00:00.000Z"),
+    returnDate: DateTime.now(),
+    status: BorrowStatus.returned,
   );
 
-  if (success) {
-    print("✅ Member Deleted Successfully!");
+  final result = await service.updateBorrowing(returnedBorrowing);
+
+  if (result != null) {
+    print("✅ Book Returned Successfully!");
+    print("Borrowing ID: ${result.id}");
+    print("Status: ${result.status.name}");
+    print("Return Date: ${result.returnDate}");
   } else {
-    print("❌ Delete Failed");
+    print("❌ Return Failed");
   }
 }

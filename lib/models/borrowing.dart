@@ -1,15 +1,15 @@
 enum BorrowStatus { borrowed, returned }
 
 class Borrowing {
-  final int id;
-  int bookId;
-  int memberId;
+  final String? id;
+  String bookId;
+  String memberId;
   DateTime borrowDate;
   DateTime? returnDate;
   BorrowStatus status;
 
   Borrowing({
-    required this.id,
+    this.id,
     required this.bookId,
     required this.memberId,
     required this.borrowDate,
@@ -19,12 +19,12 @@ class Borrowing {
 
   factory Borrowing.fromJson(Map<String, dynamic> json) {
     return Borrowing(
-      id: json['id'],
-      bookId: json['bookId'],
-      memberId: json['memberId'],
-      borrowDate: DateTime.parse(json['borrowDate']),
+      id: json['id']?.toString(),
+      bookId: json['bookId'].toString(),
+      memberId: json['memberId'].toString(),
+      borrowDate: DateTime.parse(json['borrowDate'].toString()),
       returnDate: json['returnDate'] != null
-          ? DateTime.parse(json['returnDate'])
+          ? DateTime.parse(json['returnDate'].toString())
           : null,
       status: json['status'] == 'returned'
           ? BorrowStatus.returned
@@ -32,6 +32,15 @@ class Borrowing {
     );
   }
 
+  Map<String, dynamic> toCreateJson() {
+    return {
+      'bookId': bookId,
+      'memberId': memberId,
+      'borrowDate': borrowDate.toIso8601String(),
+      'returnDate': returnDate?.toIso8601String(),
+      'status': status.name,
+    };
+  }
 
   Map<String, dynamic> toJson() {
     return {

@@ -36,7 +36,24 @@
       "description": "Books about databases, SQL, and data management"
     }
   ],
-  "borrowings": [],
+  "borrowings": [
+    {
+      "id": "1",
+      "bookId": "1",
+      "memberId": "1",
+      "borrowDate": "2026-08-10T09:00:00.000Z",
+      "returnDate": "2026-08-10T11:53:44.891716",
+      "status": "returned"
+    },
+    {
+      "bookId": "1",
+      "memberId": "1",
+      "borrowDate": "2026-08-10T11:52:12.098513",
+      "returnDate": null,
+      "status": "borrowed",
+      "id": "JHHl9FmfkOM"
+    }
+  ],
   "users": [
     {
       "id": "1",
