@@ -1,5 +1,5 @@
 abstract class Person {
-  final String? id;
+  final int? id;
   String name;
 
   Person({

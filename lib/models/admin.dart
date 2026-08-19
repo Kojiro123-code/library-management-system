@@ -3,7 +3,7 @@ import 'user.dart';
 
 class Admin extends User {
   Admin({
-    String? id,
+    int? id,
     required String name,
     required String username,
     required String password,

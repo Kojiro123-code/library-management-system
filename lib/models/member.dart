@@ -5,7 +5,7 @@ class Member extends Person {
   String email;
 
   Member({
-    String? id,
+    int? id,
     required String name,
     required this.phone,
     required this.email,
@@ -16,7 +16,7 @@ class Member extends Person {
 
   factory Member.fromJson(Map<String, dynamic> json) {
     return Member(
-      id: json['id']?.toString(),
+      id: json['id'],
       name: json['name'].toString(),
       phone: json['phone'].toString(),
       email: json['email'].toString(),
