@@ -1,7 +1,7 @@
 {
   "books": [
     {
-      "id": "dzdjyUfSRgE",
+      "id": 1,
       "title": "Flutter in Action",
       "author": "Eric Windmill",
       "isbn": "9781617296147",
@@ -11,7 +11,7 @@
       "availableQuantity": 5
     },
     {
-      "id": "kq8Euuf4zPs",
+      "id": 2,
       "title": "Flutter in Action (2nd Edition)",
       "author": "Eric Windmill",
       "isbn": "9781617296147",
@@ -19,6 +19,16 @@
       "publishedYear": 2023,
       "quantity": 10,
       "availableQuantity": 9
+    },
+    {
+      "id": 3,
+      "title": "Dart Programming",
+      "author": "Test Author",
+      "isbn": "123456789",
+      "categoryId": 1,
+      "publishedYear": 2026,
+      "quantity": 3,
+      "availableQuantity": 3
     }
   ],
   "members": [

@@ -1,6 +1,6 @@
 import 'person.dart';
 
-enum UserRole { admin, user }
+enum UserRole { admin, librarian }
 
 class User extends Person {
   final String username;
@@ -8,7 +8,7 @@ class User extends Person {
   final UserRole role;
 
   User({
-    String? id,
+    int? id,
     required String name,
     required this.username,
     required this.password,
@@ -20,13 +20,15 @@ class User extends Person {
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
-      id: json['id']?.toString(),
+      id: json['id'] is int
+          ? json['id'] as int
+          : int.tryParse(json['id'].toString()),
       name: json['name'].toString(),
       username: json['username'].toString(),
       password: json['password'].toString(),
       role: json['role'] == 'admin'
           ? UserRole.admin
-          : UserRole.user,
+          : UserRole.librarian,
     );
   }
 
