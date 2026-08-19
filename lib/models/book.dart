@@ -1,5 +1,6 @@
 class Book {
-  final String? id;
+  final int? id;
+
   String title;
   String author;
   String isbn;
@@ -21,19 +22,21 @@ class Book {
 
   factory Book.fromJson(Map<String, dynamic> json) {
     return Book(
-      id: json['id'].toString(),
+      id: int.parse(json['id'].toString()),
       title: json['title'].toString(),
       author: json['author'].toString(),
       isbn: json['isbn'].toString(),
       categoryId: int.parse(json['categoryId'].toString()),
       publishedYear: int.parse(json['publishedYear'].toString()),
       quantity: int.parse(json['quantity'].toString()),
-      availableQuantity: int.parse(json['availableQuantity'].toString()),
+      availableQuantity:
+          int.parse(json['availableQuantity'].toString()),
     );
   }
 
   Map<String, dynamic> toCreateJson() {
     return {
+      'id': id,
       'title': title,
       'author': author,
       'isbn': isbn,

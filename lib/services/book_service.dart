@@ -36,17 +36,45 @@ class BookService {
   }
 
   Future<Book?> addBook(Book book) async {
-    final response = await _api.post(
-      endPoint: ApiEndPoint.books,
-      body: book.toCreateJson(),
-    );
+  final books = await getBooks();
 
-    if (response.statusCode == 201) {
-      return Book.fromJson(jsonDecode(response.body));
+  int nextId = 1;
+
+  if (books.isNotEmpty) {
+    final ids = books
+        .where((book) => book.id != null)
+        .map((book) => book.id!)
+        .toList();
+
+    if (ids.isNotEmpty) {
+      nextId = ids.reduce((a, b) => a > b ? a : b) + 1;
     }
-
-    return null;
   }
+
+  final newBook = Book(
+    id: nextId,
+    title: book.title,
+    author: book.author,
+    isbn: book.isbn,
+    categoryId: book.categoryId,
+    publishedYear: book.publishedYear,
+    quantity: book.quantity,
+    availableQuantity: book.availableQuantity,
+  );
+
+  final response = await _api.post(
+    endPoint: ApiEndPoint.books,
+    body: newBook.toCreateJson(),
+  );
+
+  if (response.statusCode == 201) {
+    return Book.fromJson(
+      jsonDecode(response.body),
+    );
+  }
+
+  return null;
+}
 
   Future<Book?> updateBook(Book book) async {
     final response = await _api.put(
@@ -64,7 +92,7 @@ class BookService {
   }
 
 
-  Future<bool> deleteBook(String id) async {
+  Future<bool> deleteBook(int id) async {
     final response = await _api.delete(
       endPoint: "${ApiEndPoint.books}/$id",
     );
