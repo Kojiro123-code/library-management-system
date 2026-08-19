@@ -1,9 +1,10 @@
 enum BorrowStatus { borrowed, returned }
 
 class Borrowing {
-  final String? id;
-  String bookId;
-  String memberId;
+  final int? id;
+
+  int bookId;
+  int memberId;
   DateTime borrowDate;
   DateTime? returnDate;
   BorrowStatus status;
@@ -19,12 +20,16 @@ class Borrowing {
 
   factory Borrowing.fromJson(Map<String, dynamic> json) {
     return Borrowing(
-      id: json['id']?.toString(),
-      bookId: json['bookId'].toString(),
-      memberId: json['memberId'].toString(),
-      borrowDate: DateTime.parse(json['borrowDate'].toString()),
+      id: int.parse(json['id'].toString()),
+      bookId: int.parse(json['bookId'].toString()),
+      memberId: int.parse(json['memberId'].toString()),
+      borrowDate: DateTime.parse(
+        json['borrowDate'].toString(),
+      ),
       returnDate: json['returnDate'] != null
-          ? DateTime.parse(json['returnDate'].toString())
+          ? DateTime.parse(
+              json['returnDate'].toString(),
+            )
           : null,
       status: json['status'] == 'returned'
           ? BorrowStatus.returned
@@ -34,6 +39,7 @@ class Borrowing {
 
   Map<String, dynamic> toCreateJson() {
     return {
+      'id': id,
       'bookId': bookId,
       'memberId': memberId,
       'borrowDate': borrowDate.toIso8601String(),

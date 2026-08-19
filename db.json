@@ -33,7 +33,7 @@
   ],
   "members": [
     {
-      "id": "1",
+      "id": 1,
       "name": "John Doe",
       "phone": "012345678",
       "email": "john@example.com"
@@ -41,14 +41,14 @@
   ],
   "categories": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Database Management",
       "description": "Books about databases, SQL, and data management"
     }
   ],
   "borrowings": [
     {
-      "id": "1",
+      "id": 1,
       "bookId": "1",
       "memberId": "1",
       "borrowDate": "2026-08-10T09:00:00.000Z",
@@ -56,21 +56,28 @@
       "status": "returned"
     },
     {
-      "bookId": "1",
+      "id": 2,
+      "bookId": 1,
       "memberId": "1",
       "borrowDate": "2026-08-10T11:52:12.098513",
       "returnDate": null,
-      "status": "borrowed",
-      "id": "JHHl9FmfkOM"
+      "status": "borrowed"
     }
   ],
   "users": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Administrator",
       "username": "admin",
       "password": "1234",
       "role": "admin"
+    },
+    {
+      "id": 2,
+      "name": "User",
+      "username": "user",
+      "password": "1234",
+      "role": "librarian"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

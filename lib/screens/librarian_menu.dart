@@ -1,9 +1,11 @@
 import 'dart:io';
 
 import 'book_screen.dart';
+import 'borrowing_screen.dart';
 
 class LibrarianMenu {
   final BookScreen _bookScreen = BookScreen();
+  final BorrowingScreen _borrowingScreen = BorrowingScreen();
 
   Future<void> show() async {
     while (true) {
@@ -25,7 +27,7 @@ class LibrarianMenu {
           break;
 
         case '2':
-          print('Borrowing Management is not restored yet.');
+          await _borrowingScreen.show();
           break;
 
         case '3':

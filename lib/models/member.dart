@@ -16,7 +16,7 @@ class Member extends Person {
 
   factory Member.fromJson(Map<String, dynamic> json) {
     return Member(
-      id: json['id'],
+      id: int.parse(json['id'].toString()),
       name: json['name'].toString(),
       phone: json['phone'].toString(),
       email: json['email'].toString(),
@@ -25,6 +25,7 @@ class Member extends Person {
 
   Map<String, dynamic> toCreateJson() {
     return {
+      'id': id,
       'name': name,
       'phone': phone,
       'email': email,

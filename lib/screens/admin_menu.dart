@@ -1,9 +1,15 @@
 import 'dart:io';
 
 import 'book_screen.dart';
+import 'category_screen.dart';
+import 'member_screen.dart';
+import 'borrowing_screen.dart';
 
 class AdminMenu {
   final BookScreen _bookScreen = BookScreen();
+  final CategoryScreen _categoryScreen = CategoryScreen();
+  final MemberScreen _memberScreen = MemberScreen();
+  final BorrowingScreen _borrowingScreen = BorrowingScreen();
 
   Future<void> show() async {
     while (true) {
@@ -27,15 +33,15 @@ class AdminMenu {
           break;
 
         case '2':
-          print('Category Management is not restored yet.');
+          await _categoryScreen.show();
           break;
 
         case '3':
-          print('Member Management is not restored yet.');
+          await _memberScreen.show();
           break;
 
         case '4':
-          print('Borrowing Management is not restored yet.');
+          await _borrowingScreen.show();
           break;
 
         case '5':

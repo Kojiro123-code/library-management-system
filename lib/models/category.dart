@@ -1,5 +1,5 @@
 class Category {
-  final String? id;
+  final int? id;
   String name;
   String description;
 
@@ -11,7 +11,7 @@ class Category {
 
   factory Category.fromJson(Map<String, dynamic> json) {
     return Category(
-      id: json['id']?.toString(),
+      id: int.parse(json['id'].toString()),
       name: json['name'].toString(),
       description: json['description'].toString(),
     );
@@ -19,6 +19,7 @@ class Category {
 
   Map<String, dynamic> toCreateJson() {
     return {
+      'id': id,
       'name': name,
       'description': description,
     };
@@ -30,14 +31,5 @@ class Category {
       'name': name,
       'description': description,
     };
-  }
-
-  void displayInfo() {
-    print('===========================');
-    print('Category Information');
-    print('===========================');
-    print('ID          : $id');
-    print('Name        : $name');
-    print('Description : $description');
   }
 }
