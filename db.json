@@ -1,17 +1,17 @@
 {
   "books": [
     {
-      "id": 1,
-      "title": "Flutter in Action",
-      "author": "Eric Windmill",
-      "isbn": "9781617296147",
+      "id": "1",
+      "title": "5",
+      "author": "66",
+      "isbn": "232",
       "categoryId": 1,
       "publishedYear": 2019,
       "quantity": 5,
       "availableQuantity": 5
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Flutter in Action (2nd Edition)",
       "author": "Eric Windmill",
       "isbn": "9781617296147",
@@ -21,59 +21,62 @@
       "availableQuantity": 9
     },
     {
-      "id": 3,
-      "title": "Dart Programming",
+      "id": 4,
+      "title": "Java Programming",
       "author": "Test Author",
-      "isbn": "123456789",
+      "isbn": "123236487323",
       "categoryId": 1,
       "publishedYear": 2026,
-      "quantity": 3,
-      "availableQuantity": 3
+      "quantity": 10,
+      "availableQuantity": 10
     }
   ],
   "members": [
     {
-      "id": 1,
+      "id": "1",
       "name": "John Doe",
       "phone": "012345678",
       "email": "john@example.com"
+    },
+    {
+      "id": 2,
+      "name": "Kojiro",
+      "phone": "010758357",
+      "email": "Kojiro@gmail.com"
     }
   ],
   "categories": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Database Management",
       "description": "Books about databases, SQL, and data management"
+    },
+    {
+      "id": 2,
+      "name": "Space",
+      "description": "Book that talking about space and the outsider"
     }
   ],
   "borrowings": [
     {
-      "id": 1,
+      "id": "1",
       "bookId": "1",
       "memberId": "1",
       "borrowDate": "2026-08-10T09:00:00.000Z",
       "returnDate": "2026-08-10T11:53:44.891716",
       "status": "returned"
-    },
-    {
-      "id": 2,
-      "bookId": 1,
-      "memberId": "1",
-      "borrowDate": "2026-08-10T11:52:12.098513",
-      "returnDate": null,
-      "status": "borrowed"
     }
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Administrator",
       "username": "admin",
       "password": "1234",
       "role": "admin"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "User",
       "username": "user",
       "password": "1234",

@@ -5,6 +5,9 @@ import '../services/book_service.dart';
 
 class BookScreen {
   final BookService _bookService = BookService();
+  final bool isAdmin;
+
+  BookScreen({required this.isAdmin});
 
   Future<void> show() async {
     while (true) {
@@ -14,41 +17,65 @@ class BookScreen {
       print('======================================');
       print('1. View All Books');
       print('2. Find Book By ID');
-      print('3. Add Book');
-      print('4. Update Book');
-      print('5. Delete Book');
-      print('6. Back');
+
+      if (isAdmin) {
+        print('3. Add Book');
+        print('4. Update Book');
+        print('5. Delete Book');
+        print('6. Back');
+      } else {
+        print('3. Back');
+      }
+
       print('======================================');
 
       stdout.write('Select an option: ');
       final choice = stdin.readLineSync()?.trim();
 
-      switch (choice) {
-        case '1':
-          await _getAllBooks();
-          break;
+      if (isAdmin) {
+        switch (choice) {
+          case '1':
+            await _getAllBooks();
+            break;
 
-        case '2':
-          await _getBookById();
-          break;
+          case '2':
+            await _getBookById();
+            break;
 
-        case '3':
-          await _addBook();
-          break;
+          case '3':
+            await _addBook();
+            break;
 
-        case '4':
-          await _updateBook();
-          break;
+          case '4':
+            await _updateBook();
+            break;
 
-        case '5':
-          await _deleteBook();
-          break;
+          case '5':
+            await _deleteBook();
+            break;
 
-        case '6':
-          return;
+          case '6':
+            return;
 
-        default:
-          print(' Invalid option.');
+          default:
+            print(' Invalid option.');
+        }
+      } else {
+        switch (choice) {
+          case '1':
+            await _getAllBooks();
+            break;
+
+          case '2':
+            await _getBookById();
+            break;
+
+          case '3':
+            return;
+
+          default:
+            print(' Invalid option.');
+        }
       }
     }
   }

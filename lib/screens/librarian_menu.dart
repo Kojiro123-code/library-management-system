@@ -4,7 +4,7 @@ import 'book_screen.dart';
 import 'borrowing_screen.dart';
 
 class LibrarianMenu {
-  final BookScreen _bookScreen = BookScreen();
+  final BookScreen _bookScreen = BookScreen(isAdmin: false);
   final BorrowingScreen _borrowingScreen = BorrowingScreen();
 
   Future<void> show() async {

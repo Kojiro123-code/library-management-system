@@ -6,7 +6,7 @@ import 'member_screen.dart';
 import 'borrowing_screen.dart';
 
 class AdminMenu {
-  final BookScreen _bookScreen = BookScreen();
+  final BookScreen _bookScreen = BookScreen(isAdmin: false);
   final CategoryScreen _categoryScreen = CategoryScreen();
   final MemberScreen _memberScreen = MemberScreen();
   final BorrowingScreen _borrowingScreen = BorrowingScreen();
